@@ -1,5 +1,6 @@
 require "before_render/version"
+require "before_render/before_render"
+require "before_render/before_render_instance"
 
-module BeforeRender
-  # Your code goes here...
-end
+AbstractController::Base.send :extend,  BeforeRender
+ActionController::Base.send :include,  BeforeRenderInstance
